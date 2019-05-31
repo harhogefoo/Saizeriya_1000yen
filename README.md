@@ -9,8 +9,6 @@
 ## [docs](./docs)
 Github Pagesでサイゼリアメニューを公開
 
-https://harhogefoo.github.io/Saizeriya_1000yen/menu.json
-
 ## [generator](./generator)
 SQLiteの内容をJSONに出力する
 
