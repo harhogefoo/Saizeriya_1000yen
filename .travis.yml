@@ -4,6 +4,9 @@ node_js:
 - '11'
 script: sh -c 'cd generator && yarn && yarn generate'
 cache: yarn
+branches:
+  only:
+  - develop
 deploy:
   provider: pages
   skip_cleanup: true
