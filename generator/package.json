@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "generate": "sqlite-json ../server/sensai/saizeriya.db --table menu -o ../api/menu.json"
+    "generate": "sqlite-json ../server/sensai/saizeriya.db --table menu -o ../docs/menu.json"
   },
   "devDependencies": {
     "sqlite-json": "^1.1.0"
