@@ -11,4 +11,4 @@ deploy:
   keep_history: true
   target_branch: master
   on:
-    branch: master
+    branch: develop
