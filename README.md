@@ -14,7 +14,7 @@ https://harhogefoo.github.io/Saizeriya_1000yen/menu.json
 ## [generator](./generator)
 SQLiteの内容をJSONに出力する
 
-Travis CIでSQLiteとの自動同期を取る設定を行った。
+Travis CIでSQLiteとの自動同期をとる設定を行った。
 
 ## [server](./server)
 Flask製のサイゼリア1000円メニュー出力プロジェクト
