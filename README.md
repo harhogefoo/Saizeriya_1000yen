@@ -16,5 +16,5 @@ SQLiteの内容をJSONに出力する
 
 Travis CIでSQLiteとの自動同期を取る設定を行った。
 
-## [sever](./server)
+## [server](./server)
 Flask製のサイゼリア1000円メニュー出力プロジェクト
