@@ -1,0 +1,14 @@
+dist: trusty
+language: node_js
+node_js:
+- '11'
+script: sh -c 'cd generator && yarn && yarn generate'
+cache: yarn
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  target_branch: master
+  on:
+    branch: master
