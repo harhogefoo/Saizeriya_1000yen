@@ -9,10 +9,12 @@
 ## [docs](./docs)
 Github Pagesでサイゼリアメニューを公開
 
+https://harhogefoo.github.io/Saizeriya_1000yen/menu.json
+
 ## [generator](./generator)
 SQLiteの内容をJSONに出力する
 
 Travis CIでSQLiteとの自動同期を取る設定を行った。
 
-## [sever](./server)
+## [server](./server)
 Flask製のサイゼリア1000円メニュー出力プロジェクト
