@@ -96,6 +96,26 @@
             </v-layout>
           </v-container>
         </v-card-text>
+        <v-card-text>
+          <div class="twitter text-xs-center">
+            <social-sharing
+              url="https://saizeria-gacha.web.app/"
+              :title="tweetText"
+              description=""
+              quote=""
+              hashtags="サイゼリヤガチャ"
+              inline-template
+            >
+              <network network="twitter">
+                <button class="v-btn" style="background-color: #4394da;">
+                  <div class="v-btn__content" style="color: white;">
+                    ツイート
+                  </div>
+                </button>
+              </network>
+            </social-sharing>
+          </div>
+        </v-card-text>
       </v-card>
     </v-flex>
   </v-layout>
@@ -110,7 +130,8 @@ export default {
     return {
       items: [],
       isButtonPushed: false,
-      isRandom: true
+      isRandom: true,
+      tweetText: 'サイゼリヤガチャ\nサイゼリヤに行った時に使ってみてね！\n'
     }
   },
   computed: {
@@ -138,6 +159,7 @@ export default {
     doGacha(price) {
       this.items = getItemsLimitedPrice(this.menu, price)
       this.isButtonPushed = true
+      this.tweetText = this.generateTweetText()
     },
     doBalanceGacha() {
       const salad = getRandomItem(this.salads)
@@ -145,6 +167,7 @@ export default {
       const mainDish = getRandomItem(this.mainDishes)
       this.items = [salad, appetizer, mainDish]
       this.isButtonPushed = true
+      this.tweetText = this.generateTweetText()
     },
     doBalanceAdultGacha() {
       const salad = getRandomItem(this.salads)
@@ -153,6 +176,16 @@ export default {
       const drink = getRandomItem([...this.drinks, ...this.alcohols])
       this.items = [salad, appetizer, mainDish, drink]
       this.isButtonPushed = true
+      this.tweetText = this.generateTweetText()
+    },
+    generateTweetText() {
+      let text = ''
+      text += 'サイゼリヤガチャを回したよ！\n\n'
+      text += this.items.map(item => item.name).join('\n')
+      text += `\n\n計 ${this.totalPrice}円\n`
+      text += `${this.totalCalorie}kcal\n`
+      text += `塩分 ${this.totalSalt}g\n`
+      return text
     }
   }
 }
