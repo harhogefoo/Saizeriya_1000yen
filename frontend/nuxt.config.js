@@ -4,7 +4,6 @@ import pkg from './package'
 const title = 'サイゼリヤN円ガチャ'
 const description = 'サイゼリヤN円ガチャで今日のメニュー決めよう！'
 
-
 export default {
   mode: 'spa',
 
@@ -16,7 +15,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: description }
+      { hid: 'description', name: 'description', content: description },
       { hid: 'og:site_name', property: 'og:site_name', content: title },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
