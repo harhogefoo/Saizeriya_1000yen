@@ -5,6 +5,18 @@
         <nuxt />
       </v-container>
     </v-content>
+    <v-footer color="#fff">
+      <v-content>
+        <v-container>
+          <span
+            >featuring:
+            <a href="https://saizeriya-1000yen.herokuapp.com/" target="_blank"
+              >サイゼリヤ1000円ガチャ</a
+            ></span
+          >
+        </v-container>
+      </v-content>
+    </v-footer>
   </v-app>
 </template>
 

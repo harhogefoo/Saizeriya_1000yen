@@ -5,7 +5,12 @@
         <v-card-title
           class="display-1 red--text text--darken-1 font-weight-bold pt-5 ma-auto"
         >
-          <p class="text-xs-center ma-auto">サイゼリア<br />N円ガチャ</p>
+          <p v-if="isRandom" class="text-xs-center ma-auto">
+            サイゼリア<br />N円ガチャ
+          </p>
+          <p v-else class="text-xs-center ma-auto">
+            サイゼリア<br />バランスガチャ
+          </p>
         </v-card-title>
         <v-card-text class="text-xs-center">
           <v-btn v-if="isRandom" @click="toggleButton"
