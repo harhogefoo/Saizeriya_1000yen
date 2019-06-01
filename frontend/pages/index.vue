@@ -6,10 +6,10 @@
           class="display-1 red--text text--darken-1 font-weight-bold pt-5 ma-auto"
         >
           <p v-if="isRandom" class="text-xs-center ma-auto">
-            サイゼリア<br />N円ガチャ
+            サイゼリヤ<br />N円ガチャ
           </p>
           <p v-else class="text-xs-center ma-auto">
-            サイゼリア<br />バランスガチャ
+            サイゼリヤ<br />バランスガチャ
           </p>
         </v-card-title>
         <v-card-text class="text-xs-center">
@@ -20,33 +20,39 @@
         </v-card-text>
         <hr class="ma-3" />
         <v-card-text v-if="isRandom" class="text-xs-center">
-          <v-btn
-            class="custom-button"
-            large
-            color="primary"
-            @click="doGacha(1000)"
-            >1000円ガチャを回す</v-btn
-          >
-          <v-btn
-            class="custom-button"
-            large
-            color="primary"
-            @click="doGacha(500)"
-            >500円ガチャを回す</v-btn
-          >
-          <v-btn
-            class="custom-button"
-            large
-            color="primary"
-            @click="doGacha(1500)"
-            >1500円ガチャを回す</v-btn
-          >
+          <div>
+            <v-btn
+              class="custom-button"
+              large
+              color="primary"
+              @click="doGacha(1000)"
+              >1000円ガチャを回す</v-btn
+            >
+          </div>
+          <div>
+            <v-btn
+              class="custom-button"
+              large
+              color="primary"
+              @click="doGacha(500)"
+              >500円ガチャを回す</v-btn
+            >
+          </div>
+          <div>
+            <v-btn
+              class="custom-button"
+              large
+              color="primary"
+              @click="doGacha(1500)"
+              >1500円ガチャを回す</v-btn
+            >
+          </div>
         </v-card-text>
         <v-card-text v-if="!isRandom" class="text-xs-center">
-          <v-btn class="long" @click="doBalanceGacha"
+          <v-btn color="primary" class="long" @click="doBalanceGacha"
             >バランスの取れた<br />食事がしたいガチャ</v-btn
           >
-          <v-btn class="long" @click="doBalanceAdultGacha"
+          <v-btn color="primary" class="long" @click="doBalanceAdultGacha"
             >バランスの取れた<br />食事がしたい大人のガチャ</v-btn
           >
         </v-card-text>
@@ -90,6 +96,26 @@
             </v-layout>
           </v-container>
         </v-card-text>
+        <v-card-text>
+          <div class="twitter text-xs-center">
+            <social-sharing
+              url="https://saizeria-gacha.web.app/"
+              :title="tweetText"
+              description=""
+              quote=""
+              hashtags="サイゼリヤガチャ"
+              inline-template
+            >
+              <network network="twitter">
+                <button class="v-btn" style="background-color: #4394da;">
+                  <div class="v-btn__content" style="color: white;">
+                    ツイート
+                  </div>
+                </button>
+              </network>
+            </social-sharing>
+          </div>
+        </v-card-text>
       </v-card>
     </v-flex>
   </v-layout>
@@ -104,7 +130,8 @@ export default {
     return {
       items: [],
       isButtonPushed: false,
-      isRandom: true
+      isRandom: true,
+      tweetText: 'サイゼリヤガチャ\nサイゼリヤに行った時に使ってみてね！\n'
     }
   },
   computed: {
@@ -132,6 +159,7 @@ export default {
     doGacha(price) {
       this.items = getItemsLimitedPrice(this.menu, price)
       this.isButtonPushed = true
+      this.tweetText = this.generateTweetText()
     },
     doBalanceGacha() {
       const salad = getRandomItem(this.salads)
@@ -139,6 +167,7 @@ export default {
       const mainDish = getRandomItem(this.mainDishes)
       this.items = [salad, appetizer, mainDish]
       this.isButtonPushed = true
+      this.tweetText = this.generateTweetText()
     },
     doBalanceAdultGacha() {
       const salad = getRandomItem(this.salads)
@@ -147,6 +176,16 @@ export default {
       const drink = getRandomItem([...this.drinks, ...this.alcohols])
       this.items = [salad, appetizer, mainDish, drink]
       this.isButtonPushed = true
+      this.tweetText = this.generateTweetText()
+    },
+    generateTweetText() {
+      let text = ''
+      text += 'サイゼリヤガチャを回したよ！\n\n'
+      text += this.items.map(item => item.name).join('\n')
+      text += `\n\n計 ${this.totalPrice}円\n`
+      text += `${this.totalCalorie}kcal\n`
+      text += `塩分 ${this.totalSalt}g\n`
+      return text
     }
   }
 }
@@ -154,7 +193,7 @@ export default {
 
 <style scoped>
 .custom-border {
-  border: 5px double #007c00;
+  border: 5px double #007c00 !important;
 }
 
 .custom-button {

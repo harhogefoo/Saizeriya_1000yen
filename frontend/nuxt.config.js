@@ -2,7 +2,7 @@ import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import pkg from './package'
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
 
   /*
    ** Headers of the page
@@ -37,7 +37,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/vuetify', '~/plugins/repository.js'],
+  plugins: [
+    '@/plugins/vuetify',
+    '~/plugins/repository.js',
+    '~/plugins/vue-social-sharing.js'
+  ],
 
   /*
    ** Nuxt.js modules
@@ -45,7 +49,33 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    [
+      'nuxt-fire',
+      {
+        useOnly: ['firestore'],
+        customEnv: false,
+        functionsLocation: 'us-central1',
+        config: {
+          development: {
+            apiKey: 'AIzaSyBZlCecC5MOOHNB6og3Gvt9P9HWr_YM0gs',
+            authDomain: 'saizeria-gacha.firebaseapp.com',
+            databaseURL: 'https://saizeria-gacha.firebaseio.com',
+            projectId: 'saizeria-gacha',
+            storageBucket: 'saizeria-gacha.appspot.com',
+            messagingSenderId: '1000783891679'
+          },
+          production: {
+            apiKey: 'AIzaSyBZlCecC5MOOHNB6og3Gvt9P9HWr_YM0gs',
+            authDomain: 'saizeria-gacha.firebaseapp.com',
+            databaseURL: 'https://saizeria-gacha.firebaseio.com',
+            projectId: 'saizeria-gacha',
+            storageBucket: 'saizeria-gacha.appspot.com',
+            messagingSenderId: '1000783891679'
+          }
+        }
+      }
+    ]
   ],
   /*
    ** Axios module configuration
