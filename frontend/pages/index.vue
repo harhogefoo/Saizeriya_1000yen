@@ -160,7 +160,7 @@ export default {
 
 <style scoped>
 .custom-border {
-  border: 5px double #007c00;
+  border: 5px double #007c00 !important;
 }
 
 .custom-button {
