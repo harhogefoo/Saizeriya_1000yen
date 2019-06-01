@@ -1,6 +1,6 @@
 <template>
   <v-app style="background: #337A20;">
-    <v-content class="align-center">
+    <v-content>
       <v-container>
         <nuxt />
       </v-container>
