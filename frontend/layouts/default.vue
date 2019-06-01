@@ -1,13 +1,10 @@
 <template>
-  <v-app>
-    <v-content>
+  <v-app style="background: #337A20;">
+    <v-content class="align-center">
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2019</span>
-    </v-footer>
   </v-app>
 </template>
 
