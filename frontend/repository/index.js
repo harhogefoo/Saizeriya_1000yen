@@ -5,7 +5,7 @@ export default class Repository {
 
   async getMenu() {
     const { data } = await this.axios.get(
-      'https://harhogefoo.github.io/Saizeriya_1000yen/menu.json'
+      'https://saizeria-gacha.web.app/menu.json'
     )
     return data
   }
