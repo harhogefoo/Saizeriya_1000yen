@@ -6,10 +6,10 @@
           class="display-1 red--text text--darken-1 font-weight-bold pt-5 ma-auto"
         >
           <p v-if="isRandom" class="text-xs-center ma-auto">
-            サイゼリア<br />N円ガチャ
+            サイゼリヤ<br />N円ガチャ
           </p>
           <p v-else class="text-xs-center ma-auto">
-            サイゼリア<br />バランスガチャ
+            サイゼリヤ<br />バランスガチャ
           </p>
         </v-card-title>
         <v-card-text class="text-xs-center">
@@ -20,33 +20,39 @@
         </v-card-text>
         <hr class="ma-3" />
         <v-card-text v-if="isRandom" class="text-xs-center">
-          <v-btn
-            class="custom-button"
-            large
-            color="primary"
-            @click="doGacha(1000)"
-            >1000円ガチャを回す</v-btn
-          >
-          <v-btn
-            class="custom-button"
-            large
-            color="primary"
-            @click="doGacha(500)"
-            >500円ガチャを回す</v-btn
-          >
-          <v-btn
-            class="custom-button"
-            large
-            color="primary"
-            @click="doGacha(1500)"
-            >1500円ガチャを回す</v-btn
-          >
+          <div>
+            <v-btn
+              class="custom-button"
+              large
+              color="primary"
+              @click="doGacha(1000)"
+              >1000円ガチャを回す</v-btn
+            >
+          </div>
+          <div>
+            <v-btn
+              class="custom-button"
+              large
+              color="primary"
+              @click="doGacha(500)"
+              >500円ガチャを回す</v-btn
+            >
+          </div>
+          <div>
+            <v-btn
+              class="custom-button"
+              large
+              color="primary"
+              @click="doGacha(1500)"
+              >1500円ガチャを回す</v-btn
+            >
+          </div>
         </v-card-text>
         <v-card-text v-if="!isRandom" class="text-xs-center">
-          <v-btn class="long" @click="doBalanceGacha"
+          <v-btn color="primary" class="long" @click="doBalanceGacha"
             >バランスの取れた<br />食事がしたいガチャ</v-btn
           >
-          <v-btn class="long" @click="doBalanceAdultGacha"
+          <v-btn color="primary" class="long" @click="doBalanceAdultGacha"
             >バランスの取れた<br />食事がしたい大人のガチャ</v-btn
           >
         </v-card-text>
