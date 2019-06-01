@@ -1,6 +1,10 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import pkg from './package'
 
+const title = 'サイゼリヤN円ガチャ'
+const description = 'サイゼリヤN円ガチャで今日のメニュー決めよう！'
+
+
 export default {
   mode: 'spa',
 
@@ -8,11 +12,40 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: title,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: description }
+      { hid: 'og:site_name', property: 'og:site_name', content: title },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://saizeria-gacha.web.app/'
+      },
+      { hid: 'og:title', property: 'og:title', content: title },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: description
+      },
+      // {
+      //   hid: 'og:image',
+      //   property: 'og:image',
+      //   content: ''
+      // },
+      { hid: 'twitter:card', property: 'twitter:card', content: 'summary' },
+      {
+        hid: 'twitter:title',
+        property: 'twitter:title',
+        content: title
+      },
+      {
+        hid: 'twitter:description',
+        property: 'twitter:description',
+        content: description
+      }
     ],
     link: [
       // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
